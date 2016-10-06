@@ -1,4 +1,5 @@
 require './player.rb'
+require './item.rb'
 
 def create_players
   # Initial question asking how many players to create.
@@ -32,11 +33,24 @@ def create_players
   end
 end
 
-def choose_your_item
-  puts "Your item is #{@users_item}"
+def choose_your_item(player1, player2 = "Computer" )
+  if player2 == "Computer"
+    puts "#{player1.name}, Choose Paper, Rock, or Scissors."
+    @player1_item = gets.chomp
+    #TODO method for NPC random NPC choice
+    #TODO method for comparing results
+  else
+    puts "#{player1.name}, Choose Paper, Rock, or Scissors."
+    @player1_item = gets.chomp
+    puts "#{player2.name}, Choose Paper, Rock, or Scissors."
+    @player2_item = gets.chomp
+    #TODO method for comparing results
+  end
 end
 
 
+# Test Runs
 
 create_players
 puts @user1.player_type
+choose_your_item(@user1)
